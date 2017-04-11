@@ -96,16 +96,22 @@ def make_id_vec():
     global word_vec;
     global word_id;
     global id_vec;
+
+    tempvec = [];
+    for i in range(300):
+        tempvec.append(0.01);
+    for i in range(len(word_id)):
+        id_vec.append(tempvec);
     
     tempvec = [];
     for i in range(300):
         tempvec.append(0);
-    id_vec.append(tempvec);
+    id_vec[0] = tempvec;
     
     tempvec = [];
     for i in range(300):
         tempvec.append(0.01);
-    id_vec.append(tempvec);
+    id_vec[1] = tempvec;
 
     
     
