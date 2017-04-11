@@ -23,7 +23,7 @@ filenames = [r"WikiQASent-dev",
              r"WikiQASent-test-filtered",
              r"WikiQASent-train"]
 
-model = gensim.models.Word2Vec.load_word2vec_format(r'F:\BaiduYunDownload\GoogleNews-vectors-negative300.bin',binary = True);
+model = gensim.models.Word2Vec.load_word2vec_format('../../Code_and_Corpus/GoogleNews-vectors-negative300.bin',binary = True);
 
 def make_word_vec():
     global filenames;
@@ -96,15 +96,18 @@ def make_id_vec():
     global word_vec;
     global word_id;
     global id_vec;
-    tempvec = [];
-    for i in range(300):
-        tempvec.append(0.01);
-    id_vec[1] = tempvec;
-
+    
     tempvec = [];
     for i in range(300):
         tempvec.append(0);
-    id_vec[0] = tempvec;
+    id_vec.append(tempvec);
+    
+    tempvec = [];
+    for i in range(300):
+        tempvec.append(0.01);
+    id_vec.append(tempvec);
+
+    
     
     for word,myid in word_id.items():
         if word in word_vec:
